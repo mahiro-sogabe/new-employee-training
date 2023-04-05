@@ -9,6 +9,20 @@
 ### Python
 - [日報作成プログラム](./src/daily_report_creation.py) \
 氏名，報告日，作業内容，反省点を登録し，Excelに出力する．
+
+※ プログラム実行前に`out`ディレクトリを以下のように作成してください．
+```bash
+.
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+├── out
+├── requirements.txt
+└── src
+    ├── calculator.html
+    ├── clicker.html
+    └── daily_report_creation.py
+```
 ## Python環境について
 Pythonのバージョンは[.python-version](./.python-version)を参考 \
 必要ライブラリは[requirements.txt](./requirements.txt)を参考
