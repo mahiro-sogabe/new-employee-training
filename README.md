@@ -20,8 +20,10 @@
 ├── requirements.txt
 └── src
 ```
+- [デジタル時計CUI](./src/0406/digital_clock_cui.py) \
+`Japan`, `UK`, `US`から選択した国の時刻を表示す．1分タイマー機能付き．
 
-- [デジタル時計](./src/0406/digital_clock.py) \
+- [デジタル時計GUI](./src/0406/digital_clock_gui.py) \
 `Japan`, `UK`, `US`から選択した国の時刻を表示する．
 
 - [オセロCUI](./src/0406/othello_cui.py) \
