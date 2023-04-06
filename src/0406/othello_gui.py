@@ -29,7 +29,7 @@ class OthelloGUI:
         self.othello = Othello()
         self.player = 1
         self.root = tk.Tk()
-        self.canvas = tk.Canvas(self.root, width=400, height=400)
+        self.canvas = tk.Canvas(self.root, width=500, height=450)
         self.canvas.pack()
         self.draw_board()
         self.draw_pieces()
