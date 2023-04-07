@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>単語あてゲーム</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href='./home.html'>Home</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>単語あてゲーム</h1>
+        <p id="question"></p>
+        <div class="row">
+            <div class="col-6">
+                <input type="text" id="answer" class="form-control" placeholder="ここに答えを入力してください">
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" onclick="checkAnswer()">答えを確認する</button>
+                <button class="btn btn-outline-dark" onclick="nextQuestion()">次の問題へ</button>
+            </div>
+        </div>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        var words = [
+            "apple",
+            "banana",
+            "cherry",
+            "dog",
+            "elephant",
+            "fox",
+            "grape",
+            "house",
+            "igloo",
+            "jacket",
+            "kangaroo",
+            "lemon",
+            "mango",
+            "notebook",
+            "orange",
+            "pear",
+            "queen",
+            "rabbit",
+            "sun",
+            "table",
+            "umbrella",
+            "vase",
+            "watermelon",
+            "xylophone",
+            "yacht",
+            "zebra",
+            "airplane",
+            "book",
+            "cat",
+            "door",
+            "egg",
+            "frog",
+            "giraffe",
+            "hat",
+            "ice cream",
+            "jungle",
+            "key",
+            "lion",
+            "moon",
+            "nest",
+            "ocean",
+            "pencil",
+            "quilt",
+            "rain",
+            "snake",
+            "tree",
+            "unicorn",
+            "volcano",
+            "window",
+            "xylophone",
+            "yarn",
+            "zoo"
+        ];
+
+        var currentWord;
+
+        function getRandomWord() {
+            var randomIndex = Math.floor(Math.random() * words.length);
+            return words[randomIndex];
+        }
+
+        function displayQuestion() {
+            var length = currentWord.length;
+            var firstLetter = currentWord.charAt(0);
+            var lastLetter = currentWord.charAt(length - 1);
+            var freq = {};  // 出現頻度を数えるためのオブジェクト
+            var mostFrequentChar = "";
+            var mostFrequentCount = 0;
+            var vowelCount = 0;
+
+            for (var i = 0; i < length; i++) {
+                var char = currentWord.charAt(i);
+
+                // 文字の出現頻度を数える
+                if (char in freq) {
+                    freq[char]++;
+                } else {
+                    freq[char] = 1;
+                }
+
+                // 最も出現頻度の高い文字を更新する
+                if (freq[char] > mostFrequentCount) {
+                    mostFrequentChar = char;
+                    mostFrequentCount = freq[char];
+                }
+
+                // 母音の出現数を数える
+                if ("aeiou".indexOf(char) !== -1) {
+                    vowelCount++;
+                }
+            }
+
+            document.getElementById("question").innerHTML = length + "文字, 最初の文字: " + firstLetter + ", 最後の文字: " + lastLetter + ", 最も出現頻度の高い文字: " + mostFrequentChar + ", 頻度: " + mostFrequentCount + ", 母音の数: " + vowelCount;
+        }
+
+        function checkAnswer() {
+            var answer = document.getElementById("answer").value.toLowerCase();
+
+            if (answer == currentWord) {
+                document.getElementById("result").innerHTML = "正解です！";
+            } else {
+                document.getElementById("result").innerHTML = "不正解です。";
+            }
+        }
+
+        function nextQuestion() {
+            currentWord = getRandomWord();
+            displayQuestion();
+            document.getElementById("answer").value = "";
+            document.getElementById("result").innerHTML = "";
+        }
+
+        nextQuestion();
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+</html>

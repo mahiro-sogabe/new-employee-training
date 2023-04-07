@@ -4,8 +4,22 @@
 ### HTML/JavaScript
 - [計算機](./src/0405/calculator.html) \
 2つの数字を入力し，四則演算を選んで計算結果を算出する．
+
 - [クリッカーゲーム](./src/0405/clicker.html) \
 制限時間内にランダムな場所に出現するボタンを何回押せたかを争うゲーム．
+
+- [単語当てゲーム](./src/0407/word.html) \
+ランダムに選ばれた単語を当てるゲーム．
+
+- [数当てゲーム](./src/0407/guess-number-between-1-and-100.html) \
+1~100の数字を当てるゲーム．
+
+- [暗算ゲーム](./src/0407/mental-arithmentic.html) \
+表示された2つの数字を暗算するゲーム．
+
+- [クイズゲーム](./src/0407/quiz.html) \
+クイズゲーム．
+
 ### Python
 - [日報作成プログラム](./src/0405/daily_report_creation.py) \
 氏名，報告日，作業内容，反省点を登録し，Excelに出力する．
